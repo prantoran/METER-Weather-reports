@@ -13,6 +13,7 @@
     - BigQuery Admin
     - Viewer (of all resources)
     - Dataproc Administrator
+    - Service Account User (required for creating Dataproc cluser using Terraform)
 - Download keys
     - IAM -> Service Accounts -> Manage keys -> Add key -> JSON
     - Rename the json to `service-acc-cred.json`
@@ -103,6 +104,9 @@ Sample output:
 
 ### GCP BigQuery Dataset
 - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/bigquery_dataset
+
+### GCP Dataproc Cluster
+- https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/dataproc_cluster
 
 ## Check config 
 ```bash
