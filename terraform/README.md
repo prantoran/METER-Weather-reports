@@ -6,6 +6,9 @@
     - BigQuery
     - Cloud Storage
     - DataProc
+    - For creating service accounts
+        - Identity and Access Management (IAM)
+        - Cloud Resource Manager
 - IAM Admin -> Service Accounts -> Create Service Account
 - Set service account name (i.e. terraform-runner)
 - Set the roles. We will need:
@@ -14,6 +17,10 @@
     - Viewer (of all resources)
     - Dataproc Administrator
     - Service Account User (required for creating Dataproc cluser using Terraform)
+    - Additional permissions required for creating service accounts with this service account:
+        - Create Service Accounts
+        - Delete Service Accounts
+        - Prooject IAM Admin
 - Download keys
     - IAM -> Service Accounts -> Manage keys -> Add key -> JSON
     - Rename the json to `service-acc-cred.json`

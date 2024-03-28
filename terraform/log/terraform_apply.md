@@ -1,8 +1,8 @@
 ```bash
-$ terraform apply
+$ terraform apply  
 
-Terraform used the selected providers to generate the following execution
-plan. Resource actions are indicated with the following symbols:
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the
+following symbols:
   + create
 
 Terraform will perform the following actions:
@@ -192,7 +192,99 @@ Terraform will perform the following actions:
         }
     }
 
-Plan: 6 to add, 0 to change, 0 to destroy.
+  # module.service-account["bigquery"].google_project_iam_member.account_roles will be created
+  + resource "google_project_iam_member" "account_roles" {
+      + etag    = (known after apply)
+      + id      = (known after apply)
+      + member  = (known after apply)
+      + project = "de-zoomcamp-418500"
+      + role    = "roles/bigquery.admin"
+    }
+
+  # module.service-account["bigquery"].google_service_account.service_account will be created
+  + resource "google_service_account" "service_account" {
+      + account_id   = "bigquery-service-acc"
+      + description  = "bigquery-service-acc Service Account for de-zoomcamp-418500 project"
+      + disabled     = false
+      + display_name = "bigquery-service-acc"
+      + email        = (known after apply)
+      + id           = (known after apply)
+      + member       = (known after apply)
+      + name         = (known after apply)
+      + project      = "de-zoomcamp-418500"
+      + unique_id    = (known after apply)
+    }
+
+  # module.service-account["dataproc"].google_project_iam_member.account_roles will be created
+  + resource "google_project_iam_member" "account_roles" {
+      + etag    = (known after apply)
+      + id      = (known after apply)
+      + member  = (known after apply)
+      + project = "de-zoomcamp-418500"
+      + role    = "roles/dataproc.admin"
+    }
+
+  # module.service-account["dataproc"].google_service_account.service_account will be created
+  + resource "google_service_account" "service_account" {
+      + account_id   = "dataproc-service-acc"
+      + description  = "dataproc-service-acc Service Account for de-zoomcamp-418500 project"
+      + disabled     = false
+      + display_name = "dataproc-service-acc"
+      + email        = (known after apply)
+      + id           = (known after apply)
+      + member       = (known after apply)
+      + name         = (known after apply)
+      + project      = "de-zoomcamp-418500"
+      + unique_id    = (known after apply)
+    }
+
+  # module.service-account["main-viewer"].google_project_iam_member.account_roles will be created
+  + resource "google_project_iam_member" "account_roles" {
+      + etag    = (known after apply)
+      + id      = (known after apply)
+      + member  = (known after apply)
+      + project = "de-zoomcamp-418500"
+      + role    = "roles/viewer"
+    }
+
+  # module.service-account["main-viewer"].google_service_account.service_account will be created
+  + resource "google_service_account" "service_account" {
+      + account_id   = "main-viewer-service-acc"
+      + description  = "main-viewer-service-acc Service Account for de-zoomcamp-418500 project"
+      + disabled     = false
+      + display_name = "main-viewer-service-acc"
+      + email        = (known after apply)
+      + id           = (known after apply)
+      + member       = (known after apply)
+      + name         = (known after apply)
+      + project      = "de-zoomcamp-418500"
+      + unique_id    = (known after apply)
+    }
+
+  # module.service-account["storage"].google_project_iam_member.account_roles will be created
+  + resource "google_project_iam_member" "account_roles" {
+      + etag    = (known after apply)
+      + id      = (known after apply)
+      + member  = (known after apply)
+      + project = "de-zoomcamp-418500"
+      + role    = "roles/storage.admin"
+    }
+
+  # module.service-account["storage"].google_service_account.service_account will be created
+  + resource "google_service_account" "service_account" {
+      + account_id   = "storage-service-acc"
+      + description  = "storage-service-acc Service Account for de-zoomcamp-418500 project"
+      + disabled     = false
+      + display_name = "storage-service-acc"
+      + email        = (known after apply)
+      + id           = (known after apply)
+      + member       = (known after apply)
+      + name         = (known after apply)
+      + project      = "de-zoomcamp-418500"
+      + unique_id    = (known after apply)
+    }
+
+Plan: 14 to add, 0 to change, 0 to destroy.
 
 Do you want to perform these actions?
   Terraform will perform the actions described above.
@@ -200,18 +292,34 @@ Do you want to perform these actions?
 
   Enter a value: yes
 
+module.service-account["storage"].google_service_account.service_account: Creating...
+module.service-account["dataproc"].google_service_account.service_account: Creating...
+module.service-account["bigquery"].google_service_account.service_account: Creating...
+module.service-account["main-viewer"].google_service_account.service_account: Creating...
 google_bigquery_dataset.metar-de-dataset: Creating...
 google_storage_bucket.metar-de-bucket["dataproc-staging-bucket"]: Creating...
 google_storage_bucket.metar-de-bucket["code"]: Creating...
-google_storage_bucket.metar-de-bucket["streaming"]: Creating...
 google_storage_bucket.metar-de-bucket["batch"]: Creating...
+google_storage_bucket.metar-de-bucket["streaming"]: Creating...
 google_dataproc_cluster.metar-cluster: Creating...
-google_bigquery_dataset.metar-de-dataset: Creation complete after 1s [id=projects/de-zoomcamp-418500/datasets/metas_reports]
 google_storage_bucket.metar-de-bucket["code"]: Creation complete after 1s [id=code-de-zoomcamp-418500-yo-bucket]
-google_storage_bucket.metar-de-bucket["batch"]: Creation complete after 1s [id=batch-de-zoomcamp-418500-yo-bucket]
-google_storage_bucket.metar-de-bucket["streaming"]: Creation complete after 1s [id=streaming-de-zoomcamp-418500-yo-bucket]
+google_bigquery_dataset.metar-de-dataset: Creation complete after 1s [id=projects/de-zoomcamp-418500/datasets/metas_reports]
 google_storage_bucket.metar-de-bucket["dataproc-staging-bucket"]: Creation complete after 1s [id=dataproc-staging-bucket-de-zoomcamp-418500-yo-bucket]
+module.service-account["main-viewer"].google_service_account.service_account: Creation complete after 1s [id=projects/de-zoomcamp-418500/serviceAccounts/main-viewer-service-acc@de-zoomcamp-418500.iam.gserviceaccount.com]
+module.service-account["dataproc"].google_service_account.service_account: Creation complete after 1s [id=projects/de-zoomcamp-418500/serviceAccounts/dataproc-service-acc@de-zoomcamp-418500.iam.gserviceaccount.com]
+module.service-account["bigquery"].google_service_account.service_account: Creation complete after 1s [id=projects/de-zoomcamp-418500/serviceAccounts/bigquery-service-acc@de-zoomcamp-418500.iam.gserviceaccount.com]
+module.service-account["storage"].google_service_account.service_account: Creation complete after 1s [id=projects/de-zoomcamp-418500/serviceAccounts/storage-service-acc@de-zoomcamp-418500.iam.gserviceaccount.com]
+google_storage_bucket.metar-de-bucket["batch"]: Creation complete after 1s [id=batch-de-zoomcamp-418500-yo-bucket]
+module.service-account["dataproc"].google_project_iam_member.account_roles: Creating...
+module.service-account["storage"].google_project_iam_member.account_roles: Creating...
+module.service-account["main-viewer"].google_project_iam_member.account_roles: Creating...
+module.service-account["bigquery"].google_project_iam_member.account_roles: Creating...
+google_storage_bucket.metar-de-bucket["streaming"]: Creation complete after 1s [id=streaming-de-zoomcamp-418500-yo-bucket]
+module.service-account["bigquery"].google_project_iam_member.account_roles: Creation complete after 8s [id=de-zoomcamp-418500/roles/bigquery.admin/serviceAccount:bigquery-service-acc@de-zoomcamp-418500.iam.gserviceaccount.com]
+module.service-account["dataproc"].google_project_iam_member.account_roles: Creation complete after 8s [id=de-zoomcamp-418500/roles/dataproc.admin/serviceAccount:dataproc-service-acc@de-zoomcamp-418500.iam.gserviceaccount.com]
+module.service-account["storage"].google_project_iam_member.account_roles: Creation complete after 9s [id=de-zoomcamp-418500/roles/storage.admin/serviceAccount:storage-service-acc@de-zoomcamp-418500.iam.gserviceaccount.com]
 google_dataproc_cluster.metar-cluster: Still creating... [10s elapsed]
+module.service-account["main-viewer"].google_project_iam_member.account_roles: Creation complete after 9s [id=de-zoomcamp-418500/roles/viewer/serviceAccount:main-viewer-service-acc@de-zoomcamp-418500.iam.gserviceaccount.com]
 google_dataproc_cluster.metar-cluster: Still creating... [20s elapsed]
 google_dataproc_cluster.metar-cluster: Still creating... [30s elapsed]
 google_dataproc_cluster.metar-cluster: Still creating... [40s elapsed]
@@ -228,9 +336,7 @@ google_dataproc_cluster.metar-cluster: Still creating... [2m20s elapsed]
 google_dataproc_cluster.metar-cluster: Still creating... [2m30s elapsed]
 google_dataproc_cluster.metar-cluster: Still creating... [2m40s elapsed]
 google_dataproc_cluster.metar-cluster: Still creating... [2m50s elapsed]
-google_dataproc_cluster.metar-cluster: Still creating... [3m0s elapsed]
-google_dataproc_cluster.metar-cluster: Still creating... [3m10s elapsed]
-google_dataproc_cluster.metar-cluster: Creation complete after 3m17s [id=projects/de-zoomcamp-418500/regions/us-central1/clusters/metar-cluster]
+google_dataproc_cluster.metar-cluster: Creation complete after 2m53s [id=projects/de-zoomcamp-418500/regions/us-central1/clusters/metar-cluster]
 
-Apply complete! Resources: 6 added, 0 changed, 0 destroyed.
+Apply complete! Resources: 14 added, 0 changed, 0 destroyed.
 ```
