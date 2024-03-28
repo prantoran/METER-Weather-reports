@@ -20,7 +20,7 @@
     - Additional permissions required for creating service accounts with this service account:
         - Create Service Accounts
         - Delete Service Accounts
-        - Prooject IAM Admin
+        - Project IAM Admin
 - Download keys
     - IAM -> Service Accounts -> Manage keys -> Add key -> JSON
     - Rename the json to `service-acc-cred.json`
