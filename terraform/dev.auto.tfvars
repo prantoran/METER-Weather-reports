@@ -1,0 +1,7 @@
+credentials       = "../keys/service-acc-cred.json"
+project           = "de-zoomcamp-418500"
+region            = "us-central1"
+location          = "US"
+bq_dataset_name   = "metas_dataset"
+gcs_bucket_name   = "de-zoomcamp-418500-yo-bucket"
+gcs_storage_class = "STANDARD"
