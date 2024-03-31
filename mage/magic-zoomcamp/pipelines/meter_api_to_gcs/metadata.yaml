@@ -1,0 +1,113 @@
+blocks:
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    dynamic: false
+  downstream_blocks:
+  - meter_to_gcs_parquet
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: process_Meter_stations
+  retry_config: null
+  status: updated
+  timeout: null
+  type: data_loader
+  upstream_blocks:
+  - load_stations_from_network
+  uuid: process_meter_stations
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    dynamic: true
+  downstream_blocks:
+  - process_meter_stations
+  - meter_to_gcs_parquet
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: load_stations_from_network
+  retry_config: null
+  status: updated
+  timeout: null
+  type: data_loader
+  upstream_blocks:
+  - load_networks
+  uuid: load_stations_from_network
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    dynamic: true
+  downstream_blocks:
+  - load_stations_from_network
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: load_networks
+  retry_config: null
+  status: updated
+  timeout: null
+  type: data_loader
+  upstream_blocks:
+  - load_config
+  uuid: load_networks
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - load_networks
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: load_config
+  retry_config: null
+  status: updated
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: load_config
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: meter_to_gcs_parquet
+  retry_config: null
+  status: updated
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - process_meter_stations
+  - load_stations_from_network
+  uuid: meter_to_gcs_parquet
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2024-03-31 00:13:55.868876+00:00'
+data_integration: null
+description: null
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: meter_api_to_gcs
+notification_config: {}
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+tags: []
+type: python
+uuid: meter_api_to_gcs
+variables_dir: /home/src/mage_data/magic-zoomcamp
+widgets: []
