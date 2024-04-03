@@ -2,6 +2,7 @@ import pandas as pd
 import requests
 from typing import Dict, List
 import io
+import random
 
 if 'data_loader' not in globals():
     from mage_ai.data_preparation.decorators import data_loader
@@ -36,7 +37,20 @@ def load_data_from_api(data: Dict, *args, **kwargs) -> List[List[Dict]]:
 
     tasks = []
     metadata = []
+    
+    random.shuffle(stations)
+    
+    stations_subset = ["CYVR", "CYXX", "CYLW", "CYWH"]
+
+    cnt = 2
+
     for i, u in enumerate(stations):
+        if cnt == 2:
+            break
+        cnt += 1
+        stations_subset.append(u)
+
+    for i, u in enumerate(stations_subset):    
         v = data.copy()
         v['station'] = u
         tasks.append(v)
