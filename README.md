@@ -9,12 +9,13 @@
 ![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)
 ![Jupyter Notebook](https://img.shields.io/badge/jupyter-%23FA0F00.svg?style=for-the-badge&logo=jupyter&logoColor=white)
 
-- [Dataproc](https://cloud.google.com/dataproc)
 - [Apache Spark](https://spark.apache.org/)
-- [PySpark](https://spark.apache.org/docs/latest/api/python/)
 - [BigQuery](https://cloud.google.com/bigquery)
+- [Dataproc](https://cloud.google.com/dataproc)
 - [GCS Buckets](https://cloud.google.com/storage)
-
+- [Mage](https://www.mage.ai/)
+- [PySpark](https://spark.apache.org/docs/latest/api/python/)
+- [Terraform](https://www.terraform.io/)
 ---
 
 ## About the project
