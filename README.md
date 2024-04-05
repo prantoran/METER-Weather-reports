@@ -43,7 +43,7 @@ Here is a sample API call:
 https://mesonet.agron.iastate.edu/cgi-bin/request/asos.py?station=EPKK&data=all&year1=2023&month1=1&day1=1&year2=2023&month2=3&day2=26&tz=Etc%2FUTC&format=onlycomma&latlon=no&elev=no&missing=null&trace=T&direct=no&report_type=3&report_type=4
 ```
 
-More details are in [Dataset.md](Dataset.md).
+More details are in [doc/Dataset.md](doc/Dataset.md).
 
 ## Setting up Terraform
 Checkout [terraform/README.md](terraform/README.md).
@@ -53,6 +53,10 @@ Checkout [terraform/README.md](terraform/README.md).
 Checkout [mage/README.md](mage/README.md).
 
 The contents of the Mage folder were copied from [github.com/mage-ai/maze-zoomcamp](https://github.com/mage-ai/mage-zoomcamp). In addition, [Dynamic blocks](https://docs.mage.ai/guides/blocks/dynamic-blocks) are used to trigger multiple instances of children blocks based on the number of stations returned by the API calls. After running `docker-compose up`, the Mage UI will be accessible in `localhost:6789`.
+
+### Mage blocks/tasks setup:
+
+![mage](doc/mage.png)
 
 **Note**: If there are existing docker instances (i.e. Postgres):
 - Remove the existing docker instances:
@@ -64,6 +68,7 @@ docker rm $(docker ps -aq)
 ```bash
 sudo systemctl stop postgresql
 ```
+
 
 ## Process from GCS Bucket to BigQuery using Dataproc/Spark
 **Note:** According to the config in [terraform/dev.auto.tfvars](terraform/dev.auto.tfvars), adjust the bucket paths in [scripts/upload_pyspark_script_sql_to_gcs.sh](scripts/upload_pyspark_script_sql_to_gcs.sh) and [script/submit_dataproc_job.sh](script/submit_dataproc_job.sh).
