@@ -2,12 +2,17 @@
 
 ## Technologies
 
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
-![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
-![Terraform](https://img.shields.io/badge/terraform-%235835CC.svg?style=for-the-badge&logo=terraform&logoColor=white)
-![Google Cloud](https://img.shields.io/badge/GoogleCloud-%234285F4.svg?style=for-the-badge&logo=google-cloud&logoColor=white)
-![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)
-![Jupyter Notebook](https://img.shields.io/badge/jupyter-%23FA0F00.svg?style=for-the-badge&logo=jupyter&logoColor=white)
+<img height="32" width="32" src="https://cdn.simpleicons.org/apachespark" />
+<img height="32" width="32" src="https://cdn.simpleicons.org/docker" />
+<img height="32" width="32" src="https://cdn.simpleicons.org/googlebigquery" />
+<img height="32" width="32" src="https://cdn.simpleicons.org/googledataproc" />
+<img height="32" width="32" src="https://cdn.simpleicons.org/googlecloudstorage" />
+<img height="32" width="32" src="https://cdn.simpleicons.org/googlecloud" />
+<img height="32" width="32" src="https://cdn.simpleicons.org/jupyter" />
+<img height="32" width="32" src="https://cdn.simpleicons.org/pandas" />
+<img height="32" width="32" src="https://cdn.simpleicons.org/python" />
+<img height="32" width="32" src="https://cdn.simpleicons.org/terraform" />
+
 
 - [ApacheSpark](https://spark.apache.org/): Batch-process and merge data from GCS buckets to BigQuery using DataProc.
 - [BigQuery](https://cloud.google.com/bigquery): Host the materialized tables with aggregated data.
