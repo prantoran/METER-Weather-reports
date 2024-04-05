@@ -25,16 +25,13 @@ Terraform
 
 ## About the project
 
-An educational project to build an end-to-end pipline for near real-time and batch processing of data further used for visualisation 👀 and a machine learning model 🧠.
+An educational project to build an end-to-end pipline for near real-time and batch processing of data and visualisation.
 
 The project is designed to enable the preparation of an analytical summary of the variability of METAR weather reports over the years for airports of European countries. 
 
-Read more about METAR here ➡️ [METAR](https://www.dronepilotgroundschool.com/reading-aviation-routine-weather-metar-report/)
-- An ordinary METAR report is issued hourly unless significant weather changes have occurred.
-- For terminology, METAR refers to the type of report issued hourly and a SPECI refers to the type issued during special circumstances.
+The dataset is about Meteorological Aerodrome Reports ([METAR](https://www.dronepilotgroundschool.com/reading-aviation-routine-weather-metar-report/)) which are observations of current surface weather reported in a standard international format.
 
-
-Here is the Looker Studio demo of the analysis using few stations: [CA_BC_ASOS](https://lookerstudio.google.com/reporting/cc8b1182-bd9e-49c1-9e38-d0feffd0cd0d)
+Here is the Looker Studio demo of the analysis using few stations: [CA_BC_ASOS](https://lookerstudio.google.com/reporting/cc8b1182-bd9e-49c1-9e38-d0feffd0cd0d).
 
 
 ## Dataset

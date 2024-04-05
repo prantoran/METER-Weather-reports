@@ -1,4 +1,5 @@
 # Dataset
+An ordinary METAR report is issued hourly unless significant weather changes have occurred. For terminology, METAR refers to the type of report issued hourly and a SPECI refers to the type issued during special circumstances.
 
 [ICAO codes for Canada](https://en.wikipedia.org/wiki/List_of_airports_by_ICAO_code:_C).
 
