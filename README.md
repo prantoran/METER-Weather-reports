@@ -33,6 +33,9 @@ The dataset is about Meteorological Aerodrome Reports ([METAR](https://www.drone
 
 Here is the Looker Studio demo of the analysis using few stations: [CA_BC_ASOS](https://lookerstudio.google.com/reporting/cc8b1182-bd9e-49c1-9e38-d0feffd0cd0d).
 
+Setup overview:
+
+![sd](doc/sd.png)
 
 ## Dataset
 
