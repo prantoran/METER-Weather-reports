@@ -1,16 +1,9 @@
 # Dataset
 
-We will make API calls and save data to GCS buckets using parquey format with the following file path: `<network_name>/<station_name>/<station_name>.parquet`.
+[ICAO codes for Canada](https://en.wikipedia.org/wiki/List_of_airports_by_ICAO_code:_C).
 
-Here is a sample API call:
-```python
-https://mesonet.agron.iastate.edu/cgi-bin/request/asos.py?station=EPKK&data=all&year1=2023&month1=1&day1=1&year2=2023&month2=3&day2=26&tz=Etc%2FUTC&format=onlycomma&latlon=no&elev=no&missing=null&trace=T&direct=no&report_type=3&report_type=4
-```
-
-ICAO codes for Canada: https://en.wikipedia.org/wiki/List_of_airports_by_ICAO_code:_C
-
-Abbreviations:
-- http://www.moratech.com/aviation/metaf-abbrev.html
+The raw records from the API calls contain [abbreviations](http://www.moratech.com/aviation/metaf-abbrev.html) related to METER and TAF weather reports. 
+ 
 
 IEM network:
 - https://mesonet.agron.iastate.edu/request/download.phtml
