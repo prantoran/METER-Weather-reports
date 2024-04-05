@@ -2,16 +2,7 @@
 
 ## Technologies
 
-<img height="32" width="32" src="https://cdn.simpleicons.org/apachespark" />
-<img height="32" width="32" src="https://cdn.simpleicons.org/docker" />
-<img height="32" width="32" src="https://cdn.simpleicons.org/googlebigquery" />
-<img height="32" width="32" src="https://cdn.simpleicons.org/googledataproc" />
-<img height="32" width="32" src="https://cdn.simpleicons.org/googlecloudstorage" />
-<img height="32" width="32" src="https://cdn.simpleicons.org/googlecloud" />
-<img height="32" width="32" src="https://cdn.simpleicons.org/jupyter" />
-<img height="32" width="32" src="https://cdn.simpleicons.org/pandas" />
-<img height="32" width="32" src="https://cdn.simpleicons.org/python" />
-<img height="32" width="32" src="https://cdn.simpleicons.org/terraform" />
+<img height="32" width="32" src="https://cdn.simpleicons.org/apachespark" /> <img height="32" width="32" src="https://cdn.simpleicons.org/docker" /> <img height="32" width="32" src="https://cdn.simpleicons.org/googlebigquery" /> <img height="32" width="32" src="https://cdn.simpleicons.org/googledataproc" /> <img height="32" width="32" src="https://cdn.simpleicons.org/googlecloudstorage" /> <img height="32" width="32" src="https://cdn.simpleicons.org/googlecloud" /> <img height="32" width="32" src="https://cdn.simpleicons.org/jupyter" /> <img height="32" width="32" src="https://cdn.simpleicons.org/pandas" /> <img height="32" width="32" src="https://cdn.simpleicons.org/python" /> <img height="32" width="32" src="https://cdn.simpleicons.org/terraform" />
 
 
 - [ApacheSpark](https://spark.apache.org/): Batch-process and merge data from GCS buckets to BigQuery using DataProc.
