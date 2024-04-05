@@ -35,7 +35,7 @@ Here is the Looker Studio demo of the analysis using few stations: [CA_BC_ASOS](
 
 Setup overview:
 
-![sd](doc/sd.png)
+![sd](doc/sd.png?style=centerme)
 
 ## Dataset
 
@@ -59,7 +59,7 @@ The contents of the Mage folder were copied from [github.com/mage-ai/maze-zoomca
 
 ### Mage blocks/tasks setup:
 
-![mage](doc/mage.png)
+![mage](doc/mage.png?style=centerme)
 
 **Note**: If there are existing docker instances (i.e. Postgres):
 - Remove the existing docker instances:
