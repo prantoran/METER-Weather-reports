@@ -31,13 +31,17 @@ The project is designed to enable the preparation of an analytical summary of th
 
 The dataset is about Meteorological Aerodrome Reports ([METAR](https://www.dronepilotgroundschool.com/reading-aviation-routine-weather-metar-report/)) which are observations of current surface weather reported in a standard international format.
 
-Here is the Looker Studio demo of the analysis using few stations: [CA_BC_ASOS](https://lookerstudio.google.com/reporting/cc8b1182-bd9e-49c1-9e38-d0feffd0cd0d).
+Here is the Looker Studio demo of the analysis using few stations: [CA_BC_ASOS](https://lookerstudio.google.com/reporting/cc8b1182-bd9e-49c1-9e38-d0feffd0cd0d)
+
+![looker_dashboard](doc/looker_dashboard.png)
+
+
 
 Setup overview:
 
 ![sd](doc/sd.png?style=centerme)
 
-## Dataset
+### Dataset
 
 We will make API calls and save data to GCS buckets using parquet format with the following file path: `<network_name>/<station_name>/<station_name>.parquet`.
 
@@ -48,16 +52,48 @@ https://mesonet.agron.iastate.edu/cgi-bin/request/asos.py?station=EPKK&data=all&
 
 More details are in [doc/Dataset.md](doc/Dataset.md).
 
-## Setting up Terraform
+### Cloud
+The project is developed in the cloud using scalable infrastructure provided by [Google Cloud Platform](https://cloud.google.com/). Infrastructure as Code (IaC) tools such as [Terraform](https://www.terraform.io/) are utilized to provision and manage the cloud resources efficiently.
+
+### Data Ingestion
+Data ingestion involves batch processing, where data is collected, processed, and uploaded to the data lake periodically and subsequently to the data warehouse. This ensures that the latest information on customers' meal choices, order values, and sales conversions is readily available for analysis.
+
+### Workflow Orchestration
+An end-to-end pipeline is orchestrated using [Mage](https://www.mage.ai/) to automate data workflows. This pipeline efficiently manages multiple steps in a Directed Acyclic Graph (DAG), ensuring seamless execution and reliability of the data processing tasks.
+
+### Data Lake &  Data Warehouse
+In this project, [Google Cloud Storage](https://cloud.google.com/storage) is used as the data lake where the data is initially stored after ingestion from the source. [Google BigQuery](https://cloud.google.com/bigquery) is used as the data warehouse and for storing and optimizing structured data for analysis. 
+
+### Transformations
+Data transformations are performed using [Apache Spark](ttps://spark.apache.org) via [DataProc](https://cloud.google.com/dataproc). The transformation logic is defined and executed via script using [PySpark](https://spark.apache.org/docs/latest/api/python) and executed in DataProc cluster.
+
+### Dashboard
+
+Finally a dashboard is then created using [Looker Studio](https://lookerstudio.google.com/) to visualize key insights derived from the processed data. The dashboard comprises of tiles that provide some insights into the customer actions, habits, and engagement with the hotel.
+
+## Setting up the project
+
+Clone this repo: `git clone git@github.com:prantoran/METER-Weather-reports.git`.
+
+### GCP
+- Set up a google cloud platform account.
+- Create a GCP project and set up service account and authentication as per [these instructions](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/01-docker-terraform/1_terraform_gcp/2_gcp_overview.md#initial-setup).
+- Setup Terraform in local environment. Check out terraform installation instructions [here](https://developer.hashicorp.com/terraform/tutorials/gcp-get-started/install-cli).
+- See [terraform/README.md](terraform/README.md) for instructions where to copy the service account json credentials.
+    - Rename the json to `service-acc-cred.json`.
+    - Create a `keys` folder in root directory and copy the json to the folder.
+
+
+### Terraform
 Checkout [terraform/README.md](terraform/README.md).
 
-## Setting up Mage
+### Mage
 
 Checkout [mage/README.md](mage/README.md).
 
 The contents of the Mage folder were copied from [github.com/mage-ai/maze-zoomcamp](https://github.com/mage-ai/mage-zoomcamp). In addition, [Dynamic blocks](https://docs.mage.ai/guides/blocks/dynamic-blocks) are used to trigger multiple instances of children blocks based on the number of stations returned by the API calls. After running `docker-compose up`, the Mage UI will be accessible in `localhost:6789`.
 
-### Mage blocks/tasks setup:
+#### Mage blocks/tasks setup:
 
 ![mage](doc/mage.png?style=centerme)
 
@@ -73,21 +109,21 @@ sudo systemctl stop postgresql
 ```
 
 
-## Process from GCS Bucket to BigQuery using Dataproc/Spark
+### Process from GCS Bucket to BigQuery using Dataproc/Spark
 **Note:** According to the config in [terraform/dev.auto.tfvars](terraform/dev.auto.tfvars), adjust the bucket paths in [scripts/upload_pyspark_script_sql_to_gcs.sh](scripts/upload_pyspark_script_sql_to_gcs.sh) and [script/submit_dataproc_job.sh](script/submit_dataproc_job.sh).
 
-### Upload Pyspark script and sql commands:
+#### Upload Pyspark script and sql commands:
 ```bash
 ./scripts/upload_pyspark_script_sql_to_gcs.sh
 ```
 
-### Submit jobs to Dataproc
+#### Submit jobs to Dataproc
 ```bash
 ./script/submit_dataproc_job.sh
 ```
 - The desired station (i.e. `CA_BC_ASOS`) can be changed in [script/submit_dataproc_job.sh](script/submit_dataproc_job.sh).
 
 
-## Analyze the generated BigQuery tables using Looker Studio
+### Analyze the generated BigQuery tables using Looker Studio
 Here is a sample Looker dashboard: [CA_BC_ASOS](https://lookerstudio.google.com/reporting/cc8b1182-bd9e-49c1-9e38-d0feffd0cd0d).
 - The plots are created using the generated BigQuery tables as data source by [running PySpark script](#submit-jobs-to-dataproc) in a job in DataProc cluster.
